@@ -1,23 +1,18 @@
 <script setup>
 import { onMounted, ref } from "vue";
+import { useStatamicApi } from "../composables/Statmic/useStatamic";
+
 const allBlogs = ref([]);
 const categories = ref([]);
 const filteredBlogs = ref([]);
+const selectedCategories = ref([]);
+
+const { fetchCollection } = useStatamicApi();
 
 const getBlogs = async (filterValue) => {
-    try {
-        const res = await fetch(
-            `/api/collections/blogs/entries${
-                filterValue ? "?filter[category:is]=" + filterValue : ""
-            }`
-        );
-        const { data, meta } = await res.json();
-        allBlogs.value.push(...data);
-        console.log(data);
-    } catch (e) {
-        console.log(e);
-    } finally {
-    }
+    fetchCollection("blogs").then(({ data, meta }) => {
+        allBlogs.value = data;
+    });
 };
 
 const getFilteredBlogs = async (category) => {
@@ -45,11 +40,17 @@ const getCategories = async () => {
     }
 };
 
-const toggleSelection = (category) => {
-    category.isSelected = !category.isSelected;
-    filteredBlogs.value = filteredBlogs.value.filter(
-        (blog) => category.id !== blog.categories.id
-    );
+const toggleCategorySelection = (category) => {
+    const categorySlug = category.slug;
+
+    if (!selectedCategories.includes(categorySlug)) {
+        selectedCategories.value = {
+            ...selectedCategories.value,
+            categorySlug,
+        };
+    }
+
+    return selectedCategories.filter((category) => category !== categorySlug);
 };
 
 onMounted(() => {
@@ -65,10 +66,7 @@ onMounted(() => {
             :class="category.isSelected ? 'text-[#fff] bg-[#fe3b1f]' : ''"
             v-for="category in categories"
             :id="category.id"
-            @click="
-                if (!category.isSelected) getFilteredBlogs(category);
-                toggleSelection(category);
-            "
+            @click="toggleCategorySelection"
         >
             {{ category.title }}
         </button>
