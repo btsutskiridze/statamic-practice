@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="{{ site:short_locale }}">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta http-equiv="Permissions-Policy" content="interest-cohort=()" />
+        <title>{{ title ?? site:name }}</title>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+            rel="stylesheet"
+        />
+        {{ vite src='resources/css/tailwind.css' }}
+    </head>
+
+    <body
+        class="bg-white text-black text-lg font-mono flex flex-col min-h-screen"
+    >
+        {{ partial src="header" }}
+        <main
+            id="app"
+            class="flex flex-col max-w-screen px-4 md:justify-between md:px-10 lg:px-12"
+        >
+            {{ template_content }}
+        </main>
+        <footer
+            class="font-light bg-[#17161a] min-h-[10%] mt-auto text-base flex flex-col text-[#D1D0D1] px-4 md:px-10 lg:px-12"
+        >
+            <div
+                class="flex flex-col sm:flex-row justify-between gap-4 flex-wrap py-10 md:py-16"
+            >
+                <section class="flex flex-col gap-1 pb-10">
+                    <p>Follow us</p>
+                    <div class="flex flex-row gap-3">
+                        {{ footer:social_media }}
+                            <a
+                                href="{{ url }}"
+                                class="text-[#D1D0D1] font-medium"
+                                target="_blank"
+                            >
+                                {{ title }}
+                                <span>
+                                    {{ if !last }}/{{ /if }}
+                                </span>
+                            </a>
+                        {{ /footer:social_media }}
+                    </div>
+                </section>
+                {{ footer:emails }}
+                    <section
+                        class="flex flex-col xs:flex-row sm:flex-col gap-1"
+                    >
+                        <p>{{ title }}</p>
+                        <p class="text-[#D1D0D1] font-normal">{{ email }}</p>
+                    </section>
+                {{ /footer:emails }}
+            </div>
+            <div
+                class="border-t border-[#88888826] flex flex-col gap-2 md:flex-row justify-between py-6"
+            >
+                <p>{{ footer:copyright_left_side }}</p>
+                <p>{{ footer:copyright_right_side }}</p>
+            </div>
+        </footer>
+        {{ vite src='resources/js/site.js' }}
+        <script
+            defer
+            src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
+        ></script>
+    </body>
+</html>

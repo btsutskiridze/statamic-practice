@@ -1,0 +1,30 @@
+<div
+    x-data="{ open: false }"
+    x-init=""
+    class="relative w-[30%]"
+    @mouseleave="open = false"
+>
+    <div class="flex flex-row items-center gap-2">
+        <p class="text-base">Category:</p>
+
+        <button
+            class="cursor-pointer border text-left border-white py-1 px-2 rounded-md w-full"
+            @mouseenter="open = true"
+        >
+            {{ header }}
+        </button>
+    </div>
+
+    <ul
+        x-show="open"
+        x-transition:enter="transition ease-out duration-100"
+        x-transition:enter-start="transform opacity-0 scale-95"
+        x-transition:enter-end="transform opacity-100 scale-100"
+        x-transition:leave="transition ease-in duration-75"
+        x-transition:leave-start="transform opacity-100 scale-100"
+        x-transition:leave-end="transform opacity-0 scale-95"
+        class="flex flex-col gap-y-1 absolute bg-white rounded-lg p-1 w-full right-0"
+    >
+        {{ slot }}
+    </ul>
+</div>

@@ -1,0 +1,19 @@
+/* This is all you. */
+html {
+    overflow-y: scroll;
+    overflow-y: overlay;
+}
+
+body {
+    font-family: "Poppins", sans-serif !important;
+}
+
+::-webkit-scrollbar {
+    width: 4px;
+    height: 10px;
+    background: #fff;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #fe3b1f;
+}

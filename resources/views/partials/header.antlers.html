@@ -1,0 +1,38 @@
+<div
+    x-data="{ open: false }"
+    class="flex flex-col max-w-screen px-4 md:items-center md:justify-between md:flex-row md:px-10 lg:px-12 py-6"
+>
+    <div class="flex flex-row items-center justify-between">
+        <a
+            href="{{ site:url }}"
+            class="text-lg font-semibold tracking-widest text-gray-900 uppercase rounded-lg dark-mode:text-white focus:outline-none focus:shadow-outline"
+        >
+            {{ site:name }}
+        </a>
+        <button
+            class="rounded-lg md:hidden focus:outline-none focus:shadow-outline"
+            @click="open = !open"
+        >
+            <span x-show="!open">
+                {{ partial src="icons/menu-icon" }}
+            </span>
+            <span x-show="open">
+                {{ partial src="icons/close-icon" }}
+            </span>
+        </button>
+    </div>
+    <nav
+        :class="{ 'flex': open, 'hidden': !open }"
+        class="flex-col flex-grow hidden pb-4 md:pb-0 gap-4 md:flex md:justify-end md:flex-row"
+    >
+        {{ nav:collection:pages include_home="true" }}
+            <a
+                class="text-gray-800 p-1 mt-2 text-base font-semibold rounded-sm md:mt-0 md:ml-4 bg-transparent focus:text-gray-900 hover:text-white hover:bg-[#fe3b1f] focus:bg-gray-200 focus:outline-none focus:shadow-outline {{if is_current || is_parent }}underline{{/if}}"
+                href="{{ url }}"
+            >
+                {{ title }}
+            </a>
+        {{ /nav:collection:pages }}
+        {{# <x-layout.dropdown /> #}}
+    </nav>
+</div>

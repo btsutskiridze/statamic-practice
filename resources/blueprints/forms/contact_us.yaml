@@ -1,0 +1,58 @@
+sections:
+  main:
+    display: Main
+    fields:
+      - handle: first_name
+        field:
+          input_type: text
+          antlers: false
+          display: "First name"
+          type: text
+          icon: text
+          listable: hidden
+          instructions_position: above
+          visibility: visible
+          validate:
+            - "min:2"
+            - "max:16"
+            - required
+          placeholder: "Enter your name"
+      - handle: last_name
+        field:
+          placeholder: "Enter your last name"
+          input_type: text
+          antlers: false
+          display: "Last name"
+          type: text
+          icon: text
+          listable: hidden
+          instructions_position: above
+          visibility: visible
+          validate:
+            - "min:2"
+            - "max:16"
+            - required
+      - handle: email
+        field:
+          placeholder: "Enter your email"
+          input_type: email
+          antlers: false
+          display: Email
+          type: text
+          icon: text
+          listable: hidden
+          instructions_position: above
+          visibility: visible
+          validate:
+            - email
+            - required
+      - handle: message
+        field:
+          placeholder: "Enter your message"
+          antlers: false
+          display: Message
+          type: textarea
+          icon: textarea
+          listable: hidden
+          instructions_position: above
+          visibility: visible

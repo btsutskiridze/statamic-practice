@@ -1,0 +1,18 @@
+{
+    "plugins": ["./node_modules/prettier-plugin-antlers/"],
+    "overrides": [
+        {
+            "files": "*.antlers.html",
+            "options": {
+                "parser": "antlers"
+            }
+        },
+        {
+            "files": ["*.blade.php"],
+            "options": {
+                "tabWidth": 2,
+                "parser": "blade"
+            }
+        }
+    ]
+}

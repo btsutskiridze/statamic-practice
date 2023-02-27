@@ -1,0 +1,16 @@
+<div class="w-full md:w-1/2 px-3 mb-6 md:mb-0 {{ class }}">
+    <label
+        class="block uppercase tracking-wide text-gray-400 text-xs font-bold mb-2"
+        for="{{ input:handle }}"
+    >
+        {{ input:display }}
+    </label>
+    <input
+        class="appearance-none block w-full bg-gray-200 text-gray-600 {{if input:error}} border-2 border-red-500 {{/if}} rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
+        id="{{ input:name }}"
+        name="{{ input:handle }}"
+        type="{{ input:type }}"
+        value="{{ input:old }}"
+        placeholder="{{ input:placeholder }}"
+    />
+</div>

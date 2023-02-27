@@ -1,0 +1,30 @@
+title: Footer
+data:
+  social_media:
+    -
+      id: leh9awc8
+      title: Fb.
+      url: 'https://www.facebook.com/RayRedberry'
+    -
+      id: leh9cm8l
+      title: Lk.
+      url: 'https://www.linkedin.com/company/redberry-%E2%80%A2-%E1%83%A0%E1%83%94%E1%83%93%E1%83%91%E1%83%94%E1%83%A0%E1%83%98/mycompany/'
+    -
+      id: leh9e0q3
+      title: Be.
+      url: 'https://www.behance.net/Hello_redberry'
+  emails:
+    -
+      id: leh9iujj
+      title: 'Want to work with us?'
+      email: hello@redberry.ge
+    -
+      id: leh9jo0s
+      title: 'Have a general question?'
+      email: info@redberry.ge
+    -
+      id: leh9k90k
+      title: 'Looking for an opportunity?'
+      email: joinus@redberry.ge
+  copyright_left_side: '© 2021, Redberry - Digital Transformation Agency'
+  copyright_right_side: 'All right reserved.'

@@ -1,0 +1,77 @@
+title: Blog
+sections:
+  main:
+    display: Main
+    fields:
+      -
+        handle: title
+        field:
+          type: text
+          required: true
+          validate:
+            - required
+      -
+        handle: content
+        field:
+          type: markdown
+          display: Content
+          localizable: true
+      -
+        handle: author
+        field:
+          type: users
+          display: Author
+          default: current
+          localizable: true
+          max_items: 1
+      -
+        handle: template
+        field:
+          type: template
+          display: Template
+          localizable: true
+  sidebar:
+    display: Sidebar
+    fields:
+      -
+        handle: thumbnail
+        field:
+          mode: grid
+          container: assets
+          restrict: false
+          allow_uploads: true
+          show_filename: true
+          display: Thumbnail
+          type: assets
+          icon: assets
+          listable: hidden
+          instructions_position: above
+          visibility: visible
+          validate:
+            - required
+          max_files: 1
+      -
+        handle: slug
+        field:
+          type: slug
+          localizable: true
+      -
+        handle: date
+        field:
+          type: date
+          required: true
+          validate:
+            - required
+      -
+        handle: categories
+        field:
+          type: terms
+          taxonomies:
+            - categories
+          display: Categories
+          mode: select
+          instructions_position: above
+          listable: hidden
+          visibility: visible
+          max_items: 1
+          create: false

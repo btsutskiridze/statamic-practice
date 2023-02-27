@@ -1,0 +1,92 @@
+sections:
+  main:
+    display: Main
+    fields:
+      -
+        handle: social_media
+        field:
+          fields:
+            -
+              handle: title
+              field:
+                input_type: text
+                antlers: false
+                display: Title
+                type: text
+                icon: text
+                listable: hidden
+                instructions_position: above
+                visibility: visible
+            -
+              handle: url
+              field:
+                display: Url
+                type: link
+                icon: link
+                listable: false
+                instructions_position: above
+                visibility: visible
+          mode: table
+          reorderable: true
+          display: 'Social media'
+          type: grid
+          icon: grid
+          listable: hidden
+          instructions_position: above
+          visibility: visible
+      -
+        handle: emails
+        field:
+          fields:
+            -
+              handle: title
+              field:
+                input_type: text
+                antlers: false
+                display: Title
+                type: text
+                icon: text
+                listable: hidden
+                instructions_position: above
+                visibility: visible
+            -
+              handle: email
+              field:
+                input_type: email
+                antlers: false
+                display: Email
+                type: text
+                icon: text
+                listable: hidden
+                instructions_position: above
+                visibility: visible
+          mode: table
+          reorderable: true
+          display: Emails
+          type: grid
+          icon: grid
+          listable: hidden
+          instructions_position: above
+          visibility: visible
+      -
+        handle: copyright_left_side
+        field:
+          input_type: text
+          antlers: false
+          display: 'Copyright (left side)'
+          type: text
+          icon: text
+          listable: hidden
+          instructions_position: above
+          visibility: visible
+      -
+        handle: copyright_right_side
+        field:
+          input_type: text
+          antlers: false
+          display: 'Copyright (right side)'
+          type: text
+          icon: text
+          listable: hidden
+          instructions_position: above
+          visibility: visible

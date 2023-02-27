@@ -1,0 +1,26 @@
+name: bakari
+super: true
+id: 34c6b871-6a32-41c2-bcdd-f210887e7c7f
+password_hash: $2y$10$sTk.Ev4QwGGQSjCQFPz97ewpuWMPxLFIixnRaD6XRzFQjoGMhVHUu
+preferences:
+  forms:
+    contact_us:
+      columns:
+        - datestamp
+        - email
+  assets:
+    assets:
+      mode: grid
+    business_developers:
+      mode: grid
+  taxonomies:
+    business_developers:
+      columns:
+        - title
+  collections:
+    projects:
+      after_save: create_another
+      columns:
+        - title
+        - slug
+        - image

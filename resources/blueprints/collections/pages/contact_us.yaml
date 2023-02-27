@@ -1,0 +1,122 @@
+title: 'Contact us'
+sections:
+  main:
+    display: Main
+    fields:
+      -
+        handle: title
+        field:
+          type: text
+          required: true
+          validate:
+            - required
+      -
+        handle: template
+        field:
+          hide_partials: true
+          blueprint: false
+          display: template
+          type: template
+          icon: template
+          listable: hidden
+          instructions_position: above
+          visibility: visible
+      -
+        handle: business_developers
+        field:
+          mode: default
+          create: true
+          taxonomies:
+            - business_developers
+          display: Business_developers
+          type: terms
+          icon: taxonomy
+          listable: hidden
+          instructions_position: above
+          visibility: visible
+      -
+        handle: contact_form
+        field:
+          max_items: 1
+          display: 'Contact form'
+          type: form
+          icon: form
+          listable: hidden
+          instructions_position: above
+          visibility: visible
+  sidebar:
+    display: Sidebar
+    fields:
+      -
+        handle: slug
+        field:
+          type: slug
+          localizable: true
+      -
+        handle: parent
+        field:
+          type: entries
+          collections:
+            - pages
+          max_items: 1
+          listable: false
+          localizable: true
+  button_styles:
+    display: 'Button styles'
+    fields:
+      -
+        handle: background_color
+        field:
+          theme: classic
+          lock_opacity: false
+          default_color_mode: HEXA
+          color_modes:
+            - hex
+          display: 'Background color'
+          type: color
+          icon: color
+          listable: hidden
+          instructions_position: above
+          visibility: visible
+      -
+        handle: text_color
+        field:
+          theme: classic
+          lock_opacity: false
+          default_color_mode: HEXA
+          color_modes:
+            - hex
+          display: 'Text color'
+          type: color
+          icon: color
+          listable: hidden
+          instructions_position: above
+          visibility: visible
+      -
+        handle: background_hover
+        field:
+          theme: classic
+          lock_opacity: false
+          default_color_mode: HEXA
+          color_modes:
+            - hex
+          display: Background_hover
+          type: color
+          icon: color
+          listable: hidden
+          instructions_position: above
+          visibility: visible
+      -
+        handle: text_hover
+        field:
+          theme: classic
+          lock_opacity: false
+          default_color_mode: HEXA
+          color_modes:
+            - hex
+          display: 'Text hover'
+          type: color
+          icon: color
+          listable: hidden
+          instructions_position: above
+          visibility: visible

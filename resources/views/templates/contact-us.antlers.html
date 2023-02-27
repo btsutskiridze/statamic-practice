@@ -1,0 +1,36 @@
+<div class="py-4 text-2xl">
+    {{ title }}
+</div>
+<div class="w-full flex justify-between flex-col lg:flex-row gap-y-8">
+    <div class="lg:w-1/2" x-data="{loading:false}">
+        {{ form:create is='contact_us' }}
+            {{ if success }}
+                <div class="absolute bg-green-800 text-white p-2">
+                    {{ success }}
+                </div>
+            {{ else }}
+                <div class="flex flex-wrap -mx-3 mb-6">
+                    {{ fields limit='2' scope='field' }}
+                        {{ partial src="form/input" :input='field' }}
+                    {{ /fields }}
+                </div>
+                {{ fields offset="2" scope='field' }}
+                    {{ is_textarea = type == 'textarea' }}
+                    <div class="flex flex-wrap -mx-3 mb-6">
+                        {{ partial src="form/{is_textarea ? 'textarea':'input'}" :input='field' class="md:w-full" }}
+                    </div>
+                {{ /fields }}
+                <div class="md:flex md:items-center">
+                    {{ partial src="form/button" :bg_color="background_color" :bg_hover='background_hover' :text_hover='text_hover' :text_color="text_color" onclick='loading = true' type='submit' value="Shoot away" }}
+                </div>
+            {{ /if }}
+        {{ /form:create }}
+    </div>
+    <div>
+        <div class="flex flex-col gap-x-2 gap-y-8">
+            {{ business_developers scope="dev" }}
+                {{ partial src='cards/avatar-card' :dev='dev' }}
+            {{ /business_developers }}
+        </div>
+    </div>
+</div>
